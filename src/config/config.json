@@ -3,13 +3,9 @@
     "dialect": "sqlite",
     "storage": "./database.sqlite"
   },
-  
+
   "production": {
-    "username": "postgres",
-    "password": "qIGNgfQHiXfVOQfqrvpoNHmjArOqhJxo",
-    "database": "railway",
-    "host": "switchyard.proxy.rlwy.net",
-    "port": "21065",
+    "use_env_variable": "DATABASE_URL",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
