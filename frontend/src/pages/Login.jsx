@@ -16,7 +16,7 @@ function Login() {
     e.preventDefault();
 
     try {
-        const resposta = await api.post('/users/login', {
+        const resposta = await api.post('/api/users/login', {
             email: email,
             password: senha,
         });
