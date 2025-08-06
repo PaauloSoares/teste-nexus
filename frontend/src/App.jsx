@@ -3,7 +3,6 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Simulador from './pages/Simulador';
 import PrivateRoute from './components/PrivateRoute';
-import './App.css';
 
 function App() {
   return (
