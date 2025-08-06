@@ -1,4 +1,4 @@
-/* Header */
+
 .header-container {
   background-color: #fff;
 
@@ -22,38 +22,4 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-}
-
-
-
-/* src/components/css/Header.css 
-
-.header-container {
-  background-color: #ffffff; 
-  padding: 10px;
-  color: #333; /* Cor do texto padrão 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-}
-
-.header-logo {
-  max-height: 40px; 
-  max-width: 150px;
-}
-
-.logout-button {
-  background-color: #000000; 
-  color: #ffffff; /
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.logout-button:hover {
-  background-color: #333333; /
 }
