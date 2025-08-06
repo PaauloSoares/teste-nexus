@@ -1,0 +1,30 @@
+.historico-conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 70vh;
+  margin-top: 100px;
+}
+
+.historico-titulo {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration-line: underline;
+  text-decoration-color: white;
+  text-decoration-style: solid;
+}
+
+.historico-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.historico-container li {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 8px;
+}

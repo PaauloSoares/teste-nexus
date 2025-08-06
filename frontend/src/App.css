@@ -1,0 +1,9 @@
+
+.main-content-wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  width: 100%;            
+  padding-top: 60px;      
+  box-sizing: border-box;
+}
