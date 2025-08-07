@@ -9,6 +9,8 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/users/simulacoes", simulacoesRoutes);
+app.use('/users', userRoutes);
+app.use('/users/simulacoes', simulacoesRoutes);
 
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "..", "frontend", "dist");
