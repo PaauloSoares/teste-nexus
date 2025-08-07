@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { user } = require('../models');
+// O ideal é usar o nome do modelo com letra maiúscula por convenção
+const { user: User } = require('../models');
 
 const userController = {
   async register(req, res) {
@@ -11,14 +12,14 @@ const userController = {
     }
 
     try {
-      const existingUser = await user.findOne({ where: { email } });
+      const existingUser = await User.findOne({ where: { email } });
       if (existingUser) {
         return res.status(409).json({ message: 'Email já cadastrado.' });
       }
 
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      const newUser = await user.create({
+      const newUser = await User.create({
         name,
         email,
         password: hashedPassword,
@@ -42,28 +43,33 @@ const userController = {
     const { email, password } = req.body;
 
     try {
-      const user = await user.findOne({ where: { email } });
+      // Altere o nome da variável para 'foundUser' para evitar conflito
+      const foundUser = await User.findOne({ where: { email } });
 
-      if (!user) {
+      if (!foundUser) {
         return res.status(404).json({ message: 'Usuário não encontrado' });
       }
 
-      const senhaCorreta = await bcrypt.compare(password, user.password);
+      const senhaCorreta = await bcrypt.compare(password, foundUser.password);
 
       if (!senhaCorreta) {
         return res.status(401).json({ message: 'Senha incorreta' });
       }
 
       const token = jwt.sign(
-        { id: user.id, email: user.email },
+        { id: foundUser.id, email: foundUser.email },
         '12345',
         { expiresIn: '1h' }
       );
 
-      return res.status(200).json({ token, user: {
-        name: user.name,
-        email: user.email
-        }, message: 'Login realizado com sucesso' });
+      return res.status(200).json({
+        token,
+        user: {
+          name: foundUser.name,
+          email: foundUser.email
+        },
+        message: 'Login realizado com sucesso'
+      });
 
     } catch (error) {
       console.error(error);
