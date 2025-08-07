@@ -10,8 +10,8 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/users/simulacoes", simulacoesRoutes);
 
-app.get("/teste", (req, res) => {
-  res.status(200).send({ mensagem: "boas-vindas à API" });
+app.get("/", (req, res) => {
+  res.status(200).json({ status: "API online" });
 });
 
 if (process.env.NODE_ENV === "production") {
