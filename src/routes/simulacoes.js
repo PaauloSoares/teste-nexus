@@ -36,7 +36,7 @@ router.get('/historico', authenticateToken, async (req, res) => {
       // Opcional: ordenar pelo mais recente
       order: [['createdAt', 'DESC']],
     });
-    return res.status(200).json(historico);
+    return res.status(200).json(historico || []);
   } catch (error) {
     console.error('Erro ao buscar histórico:', error);
     return res.status(500).json({ error: 'Erro interno do servidor.' });
