@@ -10,10 +10,6 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/users/simulacoes", simulacoesRoutes);
 
-app.get("/", (req, res) => {
-  res.status(200).json({ status: "API online" });
-});
-
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "..", "frontend", "dist");
   app.use(express.static(frontendPath));
@@ -21,5 +17,9 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
+
+app.get("/", (req, res) => {
+  res.status(200).json({ status: "API online" });
+});
 
 module.exports = app;
