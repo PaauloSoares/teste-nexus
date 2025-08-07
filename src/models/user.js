@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Favorite, { foreignKey: 'userId' });
     }
   }
-  User.init({
+  user.init({
     name: {
       type: DataTypes.STRING,
       allowNull: false,
