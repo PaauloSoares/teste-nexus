@@ -44,7 +44,7 @@ function HistoricoUsuario() {
   return (
     <div className='historico-conteiner'>
       <h3 className='historico-titulo'>Seu Histórico de Simulações</h3>
-      {historico.length > 0 ? (
+      {Array.isArray(historico) && historico.length > 0 ?  (
         <ul>
           {historico.map((item) => (
             <li key={item.id}>{item.action}</li>
