@@ -4,14 +4,14 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Favorite extends Model {
     static associate(models) {
-      this.belongsTo(models.User, { foreignKey: 'userId' });
+      this.belongsTo(models.user, { foreignKey: 'userId' });
     }
   }
   Favorite.init({
     userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Users',
+        model: 'users',
         key: 'id'
       }
     },
